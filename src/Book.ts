@@ -1,4 +1,4 @@
-export class Livro{
+export class Book{
     private id:number;
     private title: string;
     private author:string;
@@ -65,5 +65,5 @@ export class Livro{
     setCopiesAvailable(copies_available){
         this.copies_available = copies_available;
     }
-    
+
 }
