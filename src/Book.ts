@@ -62,7 +62,7 @@ export class Book{
         return this.copies_available;
     }
 
-    setCopiesAvailable(copies_available){
+    setCopiesAvailable(copies_available:number){
         this.copies_available = copies_available;
     }
 
