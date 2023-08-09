@@ -1,6 +1,6 @@
 import { User } from "./User";
 
-class Stundent extends User{
+export class Stundent extends User{
     private class_name:string;
     private registration_number:string;
 
