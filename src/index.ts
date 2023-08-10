@@ -23,7 +23,7 @@ function Menu(){
                 addingBook();
             break
             case 2: 
-                //addingUser();
+                addingUser();
             break
             case 3:
             break
@@ -56,6 +56,17 @@ function addingBook(){
 function PressioneTecla(){
     const tecla = prompt("Pressione ENTER para continuar...");
     console.clear();
+}
+
+function addingUser(){
+    const id = parseInt(prompt("Informe o ID do Usuário: "));
+    const name = prompt("Informe o Nome do Usuário: ");
+
+    const new_user = new User(id,name);
+    library.addUser(new_user);
+    console.log("Usuário adicionado com sucesso!");
+    PressioneTecla();
+
 }
 
 Menu();
