@@ -26,6 +26,7 @@ function Menu(){
                 addingUser();
             break
             case 3:
+                makingLoan();
             break
             case 4:
             break
@@ -67,6 +68,18 @@ function addingUser(){
     console.log("Usuário adicionado com sucesso!");
     PressioneTecla();
 
+}
+
+function makingLoan(){
+    const id = parseInt(prompt("Informe o ID do Empréstimo: "));
+    const id_book = parseInt(prompt("Informe o ID do Livro: "));
+    const id_user = parseInt(prompt("Informe o ID do Usuário: "));
+    const loan_date = prompt("Informe a Data do Empréstimo: "); //Pesquisar como trabalhar com datas
+    const return_date = prompt("Informe a Data de Devolução: ");
+
+    library.addLoan(id, id_book, id_user, loan_date, return_date);
+    console.log("Usuário adicionado com sucesso!");
+    PressioneTecla();
 }
 
 Menu();

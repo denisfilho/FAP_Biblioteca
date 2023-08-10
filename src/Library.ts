@@ -16,7 +16,11 @@ export class Library{
         this.users.push(new_user);
     }
 
-    addLoan(new_loan:Loan){
+    addLoan(id_loan:number, id_book: number, id_user:number,
+    loan_date:string, return_date:string){
+        const book_finded = this.searchBook(id_book);
+        const user_finded = this.searchUser(id_user);
+        const new_loan = new Loan(id_loan, book_finded, user_finded, loan_date, return_date);
         this.loans.push(new_loan);
     }
 
@@ -29,6 +33,18 @@ export class Library{
         const ids = this.loans.map(loan=> loan.getId());
         const position = ids.indexOf(current_loan.getId());
         return position;
+    }
+
+    private searchBook(id_book:number){
+        const ids = this.books.map(loan=> loan.getId());
+        const position = ids.indexOf(id_book);
+        return this.books[position];
+    }
+
+    private searchUser(id_user:number){
+        const ids = this.users.map(loan=> loan.getId());
+        const position = ids.indexOf(id_user);
+        return this.users[position];
     }
 
     searchBookByTitle(searched_book:Book){
