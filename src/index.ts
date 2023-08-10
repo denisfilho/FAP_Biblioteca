@@ -43,7 +43,7 @@ function Menu(){
 }
 
 function addingBook(){
-    const id = parseInt(prompt("Informe o ID do Livro: "));
+    const id = library.GetBooksListSize();
     const title = prompt("Informe o Título do Livro: ");
     const author = prompt("Informe o Autor do Livro: ");
     const year = parseInt(prompt("Informe o Ano de Publicação do Livro: "));
@@ -52,7 +52,7 @@ function addingBook(){
 
     const new_book = new Book(id, title, author, year, kind, copies_available);
     library.addBook(new_book);
-    console.log("Livro adicionado com sucesso!");
+    console.log(`Livro adicionado com sucesso! Seu ID é ${id}`);
     PressioneTecla();
 }
 
@@ -62,25 +62,25 @@ function PressioneTecla(){
 }
 
 function addingUser(){
-    const id = parseInt(prompt("Informe o ID do Usuário: "));
+    const id = library.GetUsersListSize();
     const name = prompt("Informe o Nome do Usuário: ");
 
     const new_user = new User(id,name);
     library.addUser(new_user);
-    console.log("Usuário adicionado com sucesso!");
+    console.log(`Usuário adicionado com sucesso! Seu ID é ${id}`);
     PressioneTecla();
 
 }
 
 function makingLoan(){
-    const id = parseInt(prompt("Informe o ID do Empréstimo: "));
+    const id = library.GetLoansListSize();
     const id_book = parseInt(prompt("Informe o ID do Livro: "));
     const id_user = parseInt(prompt("Informe o ID do Usuário: "));
     const loan_date = prompt("Informe a Data do Empréstimo: "); //Pesquisar como trabalhar com datas
     const return_date = prompt("Informe a Data de Devolução: ");
 
     library.addLoan(id, id_book, id_user, loan_date, return_date);
-    console.log("Empréstimo realizado com sucesso!");
+    console.log(`Empréstimo realizado com sucesso! Seu ID é ${id}`);
     PressioneTecla();
 }
 

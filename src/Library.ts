@@ -56,4 +56,16 @@ export class Library{
         }
         return similar_books;
     }
+
+    GetBooksListSize(){
+        return this.books.length;
+    }
+
+    GetUsersListSize(){
+        return this.users.length;
+    }
+
+    GetLoansListSize(){
+        return this.loans.length;
+    }
 }
