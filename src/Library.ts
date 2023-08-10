@@ -35,13 +35,20 @@ export class Library{
     }
 
     devolution(id_loan:number){
-        const position = this.searchLoan(id_loan);
-        this.loans.splice(position,1); //removendo da lista de emprestimo
+        const loans_ids = this.loans.map(loan=> loan.getId());
+
+        if(this.ValidadeIDLoan(loans_ids, id_loan)){
+            const position = this.searchLoan(loans_ids, id_loan);
+            this.loans.splice(position,1); //removendo da lista de emprestimo
+            console.log("Devolução Realizada com sucesso!");
+        }
+        else{
+            console.log("ID do Emprestimo Inválido. Tente novamente");
+        }
     }
 
-    private searchLoan(id_loan:number){
-        const ids = this.loans.map(loan=> loan.getId());
-        const position = ids.indexOf(id_loan);
+    private searchLoan(loans_ids:number[], id_loan:number){
+        const position = loans_ids.indexOf(id_loan);
         return position;
     }
 
@@ -84,7 +91,7 @@ export class Library{
     ValidateIDUser(ids_users:number[],id_user:number){
         return ids_users.includes(id_user);
     }
-    ValidadeIDLoan(){
-
+    ValidadeIDLoan(ids_loans:number[], id_loan:number){
+        return ids_loans.includes(id_loan);
     }
 }

@@ -69,7 +69,6 @@ function addingUser(){
     library.addUser(new_user);
     console.log(`Usuário adicionado com sucesso! Seu ID é ${id}`);
     PressioneTecla();
-
 }
 
 function makingLoan(){
@@ -80,15 +79,12 @@ function makingLoan(){
     const return_date = prompt("Informe a Data de Devolução: ");
 
     library.addLoan(id, id_book, id_user, loan_date, return_date);
-    //console.log(`Empréstimo realizado com sucesso! Seu ID é ${id}`);
     PressioneTecla();
 }
 
 function makingReturn(){
     const id = parseInt(prompt("Informe o ID do Empréstimo: "));
     library.devolution(id);
-
-    console.log("Devolução Realizada com sucesso!");
     PressioneTecla();
 }
 
