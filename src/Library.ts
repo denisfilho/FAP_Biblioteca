@@ -18,10 +18,20 @@ export class Library{
 
     addLoan(id_loan:number, id_book: number, id_user:number,
     loan_date:string, return_date:string){
-        const book_finded = this.searchBook(id_book);
-        const user_finded = this.searchUser(id_user);
-        const new_loan = new Loan(id_loan, book_finded, user_finded, loan_date, return_date);
-        this.loans.push(new_loan);
+
+        const books_ids = this.books.map(book=> book.getId());
+        const users_ids = this.users.map(user=> user.getId());
+        
+        if(this.ValidateIDBook(books_ids, id_book) && this.ValidateIDUser(users_ids, id_user)){
+            const book_finded = this.searchBook(books_ids, id_book);
+            const user_finded = this.searchUser(users_ids, id_user);
+            const new_loan = new Loan(id_loan, book_finded, user_finded, loan_date, return_date);
+            this.loans.push(new_loan);
+            console.log(`Empréstimo realizado com sucesso! Seu ID é ${id_loan}`);
+        }
+        else{
+            console.log("ID do Usuário e/ou Id do Livro Inválido. Tente novamente");
+        }
     }
 
     devolution(id_loan:number){
@@ -35,15 +45,13 @@ export class Library{
         return position;
     }
 
-    private searchBook(id_book:number){
-        const ids = this.books.map(loan=> loan.getId());
-        const position = ids.indexOf(id_book);
+    private searchBook(books_ids:number[],id_book:number){
+        const position = books_ids.indexOf(id_book);
         return this.books[position];
     }
 
-    private searchUser(id_user:number){
-        const ids = this.users.map(loan=> loan.getId());
-        const position = ids.indexOf(id_user);
+    private searchUser(users_ids:number[], id_user:number){
+        const position = users_ids.indexOf(id_user);
         return this.users[position];
     }
 
@@ -67,5 +75,16 @@ export class Library{
 
     GetLoansListSize(){
         return this.loans.length;
+    }
+
+    ValidateIDBook(ids_books:number[],id_book:number){
+        return ids_books.includes(id_book);
+    }
+
+    ValidateIDUser(ids_users:number[],id_user:number){
+        return ids_users.includes(id_user);
+    }
+    ValidadeIDLoan(){
+
     }
 }

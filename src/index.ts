@@ -42,6 +42,11 @@ function Menu(){
     }while(option!=6)
 }
 
+function PressioneTecla(){
+    const tecla = prompt("Pressione ENTER para continuar...");
+    console.clear();
+}
+
 function addingBook(){
     const id = library.GetBooksListSize();
     const title = prompt("Informe o Título do Livro: ");
@@ -54,11 +59,6 @@ function addingBook(){
     library.addBook(new_book);
     console.log(`Livro adicionado com sucesso! Seu ID é ${id}`);
     PressioneTecla();
-}
-
-function PressioneTecla(){
-    const tecla = prompt("Pressione ENTER para continuar...");
-    console.clear();
 }
 
 function addingUser(){
@@ -80,7 +80,7 @@ function makingLoan(){
     const return_date = prompt("Informe a Data de Devolução: ");
 
     library.addLoan(id, id_book, id_user, loan_date, return_date);
-    console.log(`Empréstimo realizado com sucesso! Seu ID é ${id}`);
+    //console.log(`Empréstimo realizado com sucesso! Seu ID é ${id}`);
     PressioneTecla();
 }
 
