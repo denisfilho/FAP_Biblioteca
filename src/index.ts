@@ -29,6 +29,7 @@ function Menu(){
                 makingLoan();
             break
             case 4:
+                makingReturn();
             break
             case 5:
             break
@@ -78,8 +79,15 @@ function makingLoan(){
     const return_date = prompt("Informe a Data de Devolução: ");
 
     library.addLoan(id, id_book, id_user, loan_date, return_date);
-    console.log("Usuário adicionado com sucesso!");
+    console.log("Empréstimo realizado com sucesso!");
     PressioneTecla();
 }
 
+function makingReturn(){
+    const id = parseInt(prompt("Informe o ID do Empréstimo: "));
+    library.devolution(id);
+
+    console.log("Devolução Realizada com sucesso!");
+    PressioneTecla();
+}
 Menu();

@@ -24,14 +24,14 @@ export class Library{
         this.loans.push(new_loan);
     }
 
-    devolution(loan:Loan){
-        const position = this.searchLoan(loan);
+    devolution(id_loan:number){
+        const position = this.searchLoan(id_loan);
         this.loans.splice(position,1); //removendo da lista de emprestimo
     }
 
-    private searchLoan(current_loan:Loan){
+    private searchLoan(id_loan:number){
         const ids = this.loans.map(loan=> loan.getId());
-        const position = ids.indexOf(current_loan.getId());
+        const position = ids.indexOf(id_loan);
         return position;
     }
 
