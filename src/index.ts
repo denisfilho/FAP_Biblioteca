@@ -32,6 +32,7 @@ function Menu(){
                 makingReturn();
             break
             case 5:
+                searchBookByTitle();
             break
             case 6:
             break
@@ -89,5 +90,12 @@ function makingReturn(){
 
     console.log("Devolução Realizada com sucesso!");
     PressioneTecla();
+}
+
+function searchBookByTitle(){
+    const title = prompt("Informe o Título do Livro: ");
+    const books_searched = library.searchBookByTitle(title);
+    console.log("Livros Encontrados: ");
+    console.log(books_searched);
 }
 Menu();

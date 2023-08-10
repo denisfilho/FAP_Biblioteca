@@ -47,10 +47,10 @@ export class Library{
         return this.users[position];
     }
 
-    searchBookByTitle(searched_book:Book){
+    searchBookByTitle(title_book:string){
         const similar_books:Book[] = [];
         for(let i = 0; i<this.books.length; i++){
-            if(this.books[i].getTitle().includes(searched_book.getTitle())){
+            if(this.books[i].getTitle().includes(title_book)){
                 similar_books.push(this.books[i]);
             }
         }
