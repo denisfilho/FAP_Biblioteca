@@ -56,4 +56,6 @@ export class Loan{
     setReturnDate(return_date:string){
         this.return_date = return_date;
     }
+
+    
 }

@@ -1,8 +1,9 @@
-import { Book } from "./Book";
-import { Library } from "./Library";
-import { User } from "./User";
+import { Book } from "./entities/Book";
+import { Library } from "./entities/Library";
+import { User } from "./entities/User";
+import PromptSync from  "prompt-sync";
 
-const prompt = require("prompt-sync")();
+const prompt = PromptSync();
 const library = new Library();
 
 function Menu(){
